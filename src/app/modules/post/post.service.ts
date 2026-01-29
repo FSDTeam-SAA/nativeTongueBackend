@@ -14,6 +14,7 @@ const getAllPosts = async (query: IOption) => {
     .populate('user', 'firstName lastName')
     .populate({
       path: 'comments',
+      options: { sort: { createdAt: -1 } },
       populate: {
         path: 'user',
         select: 'firstName lastName',
