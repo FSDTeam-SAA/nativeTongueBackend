@@ -1,78 +1,78 @@
-import catchAsync from '../../utils/catchAsync';
-import sendResponse from '../../utils/sendResponse';
-import { UserServices } from './user.service';
-import { fileUploader } from '../../helper/fileUploder';
+// import catchAsync from '../../utils/catchAsync';
+// import sendResponse from '../../utils/sendResponse';
+// import { UserServices } from './user.service';
+// import { fileUploader } from '../../helper/fileUploder';
 
-const getUserProfile = catchAsync(async (req, res) => {
-  const userId = req.user.id;
-  const result = await UserServices.getUserProfile(userId);
+// const getUserProfile = catchAsync(async (req, res) => {
+//   const userId = req.user.id;
+//   const result = await UserServices.getUserProfile(userId);
 
-  sendResponse(res, {
-    statusCode: 200,
-    success: true,
-    message: 'User profile retrieved successfully',
-    data: result,
-  });
-});
+//   sendResponse(res, {
+//     statusCode: 200,
+//     success: true,
+//     message: 'User profile retrieved successfully',
+//     data: result,
+//   });
+// });
 
-const updatePersonalDetails = catchAsync(async (req, res) => {
-  const userId = req.user.id;
-  const { name, email, phone, about } = req.body;
-  const updatedData: any = {
-    name,
-    email,
-    phone,
-    about,
-  };
+// const updatePersonalDetails = catchAsync(async (req, res) => {
+//   const userId = req.user.id;
+//   const { name, email, phone, about } = req.body;
+//   const updatedData: any = {
+//     name,
+//     email,
+//     phone,
+//     about,
+//   };
 
-  if (req.file) {
-    const { url } = await fileUploader.uploadToCloudinary(req.file);
-    updatedData.image = url;
-  }
+//   if (req.file) {
+//     const { url } = await fileUploader.uploadToCloudinary(req.file);
+//     updatedData.image = url;
+//   }
 
-  const result = await UserServices.updatePersonalDetails(userId, updatedData);
+//   const result = await UserServices.updatePersonalDetails(userId, updatedData);
 
-  sendResponse(res, {
-    statusCode: 200,
-    success: true,
-    message: 'Personal details updated successfully',
-    data: result,
-  });
-});
+//   sendResponse(res, {
+//     statusCode: 200,
+//     success: true,
+//     message: 'Personal details updated successfully',
+//     data: result,
+//   });
+// });
 
-const deleteAccount = catchAsync(async (req, res) => {
-  const userId = req.user.id;
+// const deleteAccount = catchAsync(async (req, res) => {
+//   const userId = req.user.id;
 
-  // Soft Delete: Set isActive to false
-  await UserServices.updatePersonalDetails(userId, { isActive: false });
+//   // Soft Delete: Set isActive to false
+//   await UserServices.updatePersonalDetails(userId, { isActive: false });
 
-  sendResponse(res, {
-    statusCode: 200,
-    success: true,
-    message: 'Account deactivated successfully',
-    data: null,
-  });
-});
+//   sendResponse(res, {
+//     statusCode: 200,
+//     success: true,
+//     message: 'Account deactivated successfully',
+//     data: null,
+//   });
+// });
 
-const updateUserLanguage = catchAsync(async (req, res) => {
-  const userId = req.user.id;
-  const { language } = req.body;
-  const result = await UserServices.updateUserLanguage(userId, language);
+// const updateUserLanguage = catchAsync(async (req, res) => {
+//   const userId = req.user.id;
+//   const { language } = req.body;
+//   const result = await UserServices.updateUserLanguage(userId, language);
 
-  sendResponse(res, {
-    statusCode: 200,
-    success: true,
-    message: 'Language updated successfully',
-    data: result,
-  });
-});
+//   sendResponse(res, {
+//     statusCode: 200,
+//     success: true,
+//     message: 'Language updated successfully',
+//     data: result,
+//   });
+// });
 
-export const UserControllers = {
-  getUserProfile,
-  updatePersonalDetails,
-  deleteAccount,
-  updateUserLanguage,
-};
+// export const UserControllers = {
+//   getUserProfile,
+//   updatePersonalDetails,
+//   deleteAccount,
+//   updateUserLanguage,
+// };
 
 // const getUserById = catchAsync(async (req, res) => {
 //   const { id } = req.params;

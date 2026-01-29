@@ -1,42 +1,42 @@
-import { deleteFromCloudinary } from '../../helper/deleteImage';
-import { IUser } from './user.interface';
-import { User } from './user.model';
+// import { deleteFromCloudinary } from '../../helper/deleteImage';
+// import { IUser } from './user.interface';
+// import { User } from './user.model';
 
-const getUserProfile = async (userId: string) => {
-  const result = await User.findById(userId);
-  return result;
-};
+// const getUserProfile = async (userId: string) => {
+//   const result = await User.findById(userId);
+//   return result;
+// };
 
-const updatePersonalDetails = async (id: string, payload: Partial<IUser>) => {
-  if (payload.image) {
-    const currentUser = await User.findById(id);
+// const updatePersonalDetails = async (id: string, payload: Partial<IUser>) => {
+//   if (payload.image) {
+//     const currentUser = await User.findById(id);
 
-    if (currentUser?.image) {
-      await deleteFromCloudinary(currentUser.image);
-    }
-  }
+//     if (currentUser?.image) {
+//       await deleteFromCloudinary(currentUser.image);
+//     }
+//   }
 
-  const result = await User.findByIdAndUpdate(id, payload, {
-    new: true,
-    runValidators: true,
-  });
-  return result;
-};
+//   const result = await User.findByIdAndUpdate(id, payload, {
+//     new: true,
+//     runValidators: true,
+//   });
+//   return result;
+// };
 
-const updateUserLanguage = async (userId: string, language: string) => {
-  const result = await User.findByIdAndUpdate(
-    userId,
-    { language },
-    { new: true, runValidators: true },
-  );
-  return result;
-};
+// const updateUserLanguage = async (userId: string, language: string) => {
+//   const result = await User.findByIdAndUpdate(
+//     userId,
+//     { language },
+//     { new: true, runValidators: true },
+//   );
+//   return result;
+// };
 
-export const UserServices = {
-  getUserProfile,
-  updatePersonalDetails,
-  updateUserLanguage,
-};
+// export const UserServices = {
+//   getUserProfile,
+//   updatePersonalDetails,
+//   updateUserLanguage,
+// };
 
 // const getUserById = async (id: string) => {
 //   const result = await User.findById(id);

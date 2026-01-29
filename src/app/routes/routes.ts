@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { UserRoutes } from '../modules/user/user.routes';
+// import { UserRoutes } from '../modules/user/user.routes';
 import { authRoutes } from '../modules/auth/auth.routes';
 import { PostRoutes } from '../modules/post/post.route';
 import { CommentRoutes } from '../modules/comment/comment.route';
@@ -7,10 +7,10 @@ import { CommentRoutes } from '../modules/comment/comment.route';
 const router = Router();
 
 const moduleRoutes = [
-  {
-    path: '/users',
-    route: UserRoutes,
-  },
+  // {
+  //   path: '/users',
+  //   route: UserRoutes,
+  // },
   {
     path: '/auth',
     route: authRoutes,

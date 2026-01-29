@@ -1,34 +1,34 @@
-import express from 'express';
-import { UserControllers } from './user.controller';
-import auth from '../../middlewares/auth';
-import { userRole } from './user.constant';
-import { fileUploader } from '../../helper/fileUploder';
+// import express from 'express';
+// import { UserControllers } from './user.controller';
+// import auth from '../../middlewares/auth';
+// import { userRole } from './user.constant';
+// import { fileUploader } from '../../helper/fileUploder';
 
-const router = express.Router();
+// const router = express.Router();
 
-// Route: POST /api/v1/users
-router.get('/me', auth(userRole.client), UserControllers.getUserProfile);
+// // Route: POST /api/v1/users
+// router.get('/me', auth(userRole.client), UserControllers.getUserProfile);
 
-router.patch(
-  '/me',
-  auth(userRole.client, userRole.professional, userRole.admin),
-  fileUploader.upload.single('image'),
-  UserControllers.updatePersonalDetails,
-);
+// router.patch(
+//   '/me',
+//   auth(userRole.client, userRole.professional, userRole.admin),
+//   fileUploader.upload.single('image'),
+//   UserControllers.updatePersonalDetails,
+// );
 
-router.delete(
-  '/me',
-  auth(userRole.client, userRole.professional, userRole.admin),
-  UserControllers.deleteAccount,
-);
+// router.delete(
+//   '/me',
+//   auth(userRole.client, userRole.professional, userRole.admin),
+//   UserControllers.deleteAccount,
+// );
 
-router.patch(
-  '/change-language',
-  auth(userRole.client, userRole.professional, userRole.admin),
-  UserControllers.updateUserLanguage,
-);
+// router.patch(
+//   '/change-language',
+//   auth(userRole.client, userRole.professional, userRole.admin),
+//   UserControllers.updateUserLanguage,
+// );
 
-export const UserRoutes = router;
+// export const UserRoutes = router;
 
 // router.post(
 //   '/create-user',
