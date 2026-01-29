@@ -15,7 +15,34 @@ const postSchema = new Schema<IPost>(
     },
     tag: {
       type: String,
-      enum: Object.keys(TAG_TYPES),
+      required: true,
+    },
+    sport: {
+      type: String,
+      required: true,
+    },
+    betType: {
+      type: String,
+      required: true,
+    },
+    summary: {
+      type: String,
+      required: true,
+    },
+    odds: {
+      type: String,
+      required: true,
+    },
+    stake: {
+      type: String,
+      required: true,
+    },
+    confidence: {
+      type: Number,
+      required: true,
+    },
+    reasoning: {
+      type: String,
       required: true,
     },
     likes: {

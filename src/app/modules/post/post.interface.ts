@@ -1,10 +1,16 @@
 import { Types } from 'mongoose';
-import { TAG_TYPES } from './tag.constant';
 
-export interface IPost {
+export type IPost = {
   user: Types.ObjectId;
   content: string;
-  tag: keyof typeof TAG_TYPES;
+  tag: string;
+  sport: string;
+  betType: string;
+  summary: string;
+  odds: string;
+  stake: string;
+  confidence: number;
+  reasoning: string;
   likes: number;
   isDeleted: boolean;
-}
+};
