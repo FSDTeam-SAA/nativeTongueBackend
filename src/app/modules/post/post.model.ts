@@ -1,6 +1,5 @@
 import { Schema, model } from 'mongoose';
 import { IPost } from './post.interface';
-import { TAG_TYPES } from './tag.constant';
 
 const postSchema = new Schema<IPost>(
   {
@@ -13,19 +12,11 @@ const postSchema = new Schema<IPost>(
       type: String,
       required: true,
     },
-    tag: {
-      type: String,
-      required: true,
-    },
     sport: {
       type: String,
       required: true,
     },
     betType: {
-      type: String,
-      required: true,
-    },
-    summary: {
       type: String,
       required: true,
     },
